@@ -11,7 +11,7 @@ router.get('/', withAuth, (req, res) => {
         },
         attributes: [
             'id',
-            'post_url',
+            'post_content',
             'title',
             'created_at',
         ],
@@ -26,13 +26,13 @@ router.get('/', withAuth, (req, res) => {
             },
             {
                 model: User,
-                attributes: ['userneame']
+                attributes: ['username']
             }
         ]
     })
     .theb(dbpostData => {
         const posts = dbpostData.map(post => post.get({plain: true}));
-        res.render('dashbosrd', {posts, loggedIn: true});
+        res.render('dashboard', {posts, loggedIn: true});
     })
     .catch(err => {
         console.log(err);

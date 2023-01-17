@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Just Tech News</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            {{#if '/dashboard'}}
+            <h1>Dashboard</h1>
+            {{else}}
+             <h1>The Tech Blog</h1>
+
+            {{/if}}
+        <nav>
+            {{#if loggedIn}}
+            <a href="/">Home</a>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/logout">Logout</a>
+            {{else}}
+            <a href="/">Home</a>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/login">Logout</a>
+            {{/if}}
+        </nav>
+        </header>
+    <main>
+        {{{body}}}
+    </main>
+    </div>
+    {{#if loggedIn}}
+        <script src="/javascript/logout.js"></script>
+    {{/if}}
+
+</body>
+
+</html>
